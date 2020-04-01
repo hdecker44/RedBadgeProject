@@ -54,12 +54,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202004012049356_restart.cs" />
+    <Compile Include="Migrations\202004012049356_restart.Designer.cs">
+      <DependentUpon>202004012049356_restart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="OtherEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SportEvent.cs" />
+    <Compile Include="Tickets.cs" />
+    <Compile Include="Venue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004012049356_restart.resx">
+      <DependentUpon>202004012049356_restart.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

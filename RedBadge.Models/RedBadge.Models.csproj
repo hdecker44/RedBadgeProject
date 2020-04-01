@@ -54,11 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventCreate.cs" />
+    <Compile Include="EventDetails.cs" />
+    <Compile Include="EventEdit.cs" />
+    <Compile Include="EventListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketCreate.cs" />
+    <Compile Include="TicketDetails.cs" />
+    <Compile Include="TicketEdit.cs" />
+    <Compile Include="TicketListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RedBadge.Data\RedBadge.Data.csproj">
+      <Project>{9BFE39EF-3F31-43C3-87BA-2E092CD0B7CC}</Project>
+      <Name>RedBadge.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
