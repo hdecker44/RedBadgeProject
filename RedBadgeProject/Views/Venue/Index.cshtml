@@ -1,0 +1,58 @@
+﻿@model IEnumerable<RedBadge.Models.VenueListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfVIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfGA)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfVIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfGA)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

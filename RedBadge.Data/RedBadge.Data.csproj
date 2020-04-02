@@ -61,6 +61,22 @@
     <Compile Include="Migrations\202004012049356_restart.Designer.cs">
       <DependentUpon>202004012049356_restart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004021414441_VipGa.cs" />
+    <Compile Include="Migrations\202004021414441_VipGa.Designer.cs">
+      <DependentUpon>202004021414441_VipGa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021535091_TicketsChange.cs" />
+    <Compile Include="Migrations\202004021535091_TicketsChange.Designer.cs">
+      <DependentUpon>202004021535091_TicketsChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021701320_Venue.cs" />
+    <Compile Include="Migrations\202004021701320_Venue.Designer.cs">
+      <DependentUpon>202004021701320_Venue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021820089_dropdown1.cs" />
+    <Compile Include="Migrations\202004021820089_dropdown1.Designer.cs">
+      <DependentUpon>202004021820089_dropdown1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tickets.cs" />
@@ -73,6 +89,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004012049356_restart.resx">
       <DependentUpon>202004012049356_restart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021414441_VipGa.resx">
+      <DependentUpon>202004021414441_VipGa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021535091_TicketsChange.resx">
+      <DependentUpon>202004021535091_TicketsChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021701320_Venue.resx">
+      <DependentUpon>202004021701320_Venue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021820089_dropdown1.resx">
+      <DependentUpon>202004021820089_dropdown1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

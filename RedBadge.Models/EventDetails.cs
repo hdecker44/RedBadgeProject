@@ -28,8 +28,26 @@ namespace RedBadge.Models
         [Display(Name = "Date")]
         public DateTime DateTime { get; set; }
 
+        [Display(Name = "GA Price")]
+        public double PriceGA { get; set; }
+
+        [Display(Name = "VIP Price")]
+        public double PriceVIP { get; set; }
+
         [Display(Name = "Number Of Seats")]
         public int NumberOfSeats { get; set; }
+
+        [Display(Name ="VIP Seats")]
+        public int NumberOfVIP { get; set; }
+
+        [Display(Name = "GA Seats")]
+        public int NumberOfGA { get; set; }
+
+        [Display(Name = "VIP Seats Available")]
+        public int VIPAvailable { get; set; }
+
+        [Display(Name = "GA Seats Available")]
+        public int GAAvailable { get; set; }
 
         [Display(Name = "Seats Available")]
         public int SeatsAvailable { get; set; }
@@ -41,11 +59,5 @@ namespace RedBadge.Models
         public bool SoldOut { get; set; }
 
         public string Description { get; set; }
-
-        [Display(Name = "Available Tickets")]
-        public ICollection<Ticket> AvailableTickets { get; set; }
-
-        [Display(Name = "Tickets Sold")]
-        public ICollection<Ticket> SoldTickets { get; set; }
     }
 }

@@ -24,7 +24,9 @@ namespace RedBadge.Service
                     OwnerId = _userId,
                     EventName = model.EventName,
                     EventType = model.EventType,
-                    VenueName = model.VenueName,
+                    VenueId = model.VenueId,
+                    PriceGA = model.PriceGA,
+                    PriceVIP = model.PriceVIP,
                     DateTime = model.DateTime
                 };
 
@@ -52,7 +54,8 @@ namespace RedBadge.Service
                                     VenueName = e.VenueName,
                                     Location = e.Location,
                                     DateTime = e.DateTime,
-                                   // SoldOut = e.SoldOut
+                                    PriceGA = e.PriceGA,
+                                    //SoldOut = e.SoldOut
                                 }
                         );
 
@@ -76,7 +79,13 @@ namespace RedBadge.Service
                         VenueName = entity.VenueName,
                         Location = entity.Location,
                         DateTime = entity.DateTime,
+                        PriceGA = entity.PriceGA,
+                        PriceVIP = entity.PriceVIP,
                         NumberOfSeats = entity.NumberOfSeats,
+                        NumberOfVIP = entity.NumberOfVIP,
+                        NumberOfGA = entity.NumberOfGA,
+                        VIPAvailable = entity.VIPAvailable,
+                        GAAvailable = entity.GAAvailable,
                         SeatsAvailable = entity.SeatsAvailable,
                         NumberOfTicketsSold = entity.NumberOfTicketsSold,
                         SoldOut = entity.SoldOut,
@@ -95,6 +104,8 @@ namespace RedBadge.Service
 
                 entity.EventName = model.EventName;
                 entity.VenueName = model.VenueName;
+                entity.PriceGA = model.PriceGA;
+                entity.PriceVIP = model.PriceVIP;
                 entity.DateTime = model.DateTime;
                 entity.Description = model.Description;
 

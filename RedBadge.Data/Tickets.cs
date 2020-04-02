@@ -18,16 +18,35 @@ namespace RedBadge.Data
 
         [Required]
         [ForeignKey("Event")]
+        //EventFK
         public int EventId { get; set; }
 
         [Required]
+        //EventFK
         public string EventName { get; set; }
 
         [Required]
+        //EventFK
         public string Location { get; set; }
 
         [Required]
-        public double Price { get; set; }
+        public double Price
+        {
+            get
+            {
+                double price;
+                if(Seat == 0)
+                {
+                    price = Event.PriceVIP;
+                }
+                else
+                {
+                    price = Event.PriceGA;
+                }
+                return price;
+            }
+        }
+
         [Required]
         public SeatType Seat { get; set; }
         public virtual Event Event { get; set; }

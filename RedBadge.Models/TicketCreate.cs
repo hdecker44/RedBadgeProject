@@ -11,11 +11,9 @@ namespace RedBadge.Models
     public class TicketCreate
     {
         [Required]
-        public string Event { get; set; }
-        [Required]
-        public string Location { get; set; }
-        [Required]
-        public double Price { get; set; }
+        [Display(Name ="Event Name")]
+        public string EventName { get; set; }
+
         [Required]
         public SeatType Seat { get; set; }
     }

@@ -22,9 +22,7 @@ namespace RedBadge.Service
                 new Ticket()
                 {
                     OwnerId = _userId,
-                    EventName = model.Event,
-                    Location = model.Location,
-                    Price = model.Price,
+                    EventName = model.EventName,
                     Seat = model.Seat,
                 };
 
@@ -86,8 +84,6 @@ namespace RedBadge.Service
                         .Single(e => e.TicketId == model.TicketId && e.OwnerId == _userId);
 
                 entity.EventName = model.EventName;
-                entity.Price = model.Price;
-                entity.Location = model.Location;
                 entity.Seat = model.Seat;
      
 

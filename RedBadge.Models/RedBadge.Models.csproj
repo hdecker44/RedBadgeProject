@@ -63,6 +63,10 @@
     <Compile Include="TicketDetails.cs" />
     <Compile Include="TicketEdit.cs" />
     <Compile Include="TicketListItem.cs" />
+    <Compile Include="VenueCreate.cs" />
+    <Compile Include="VenueDetails.cs" />
+    <Compile Include="VenueEdit.cs" />
+    <Compile Include="VenueListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

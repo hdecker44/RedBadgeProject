@@ -28,6 +28,9 @@ namespace RedBadge.Models
         [Display(Name = "Date")]
         public DateTime DateTime { get; set; }
 
+        [Display(Name ="GA Price")]
+        public double PriceGA { get; set; }
+
         [Display(Name = "Sold Out?")]
         public bool SoldOut { get; set; }
     }

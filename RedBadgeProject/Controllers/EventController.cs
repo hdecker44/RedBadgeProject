@@ -26,6 +26,9 @@ namespace RedBadgeProject.Controllers
         //GET
         public ActionResult Create()
         {
+            var service = CreateVenueService();
+
+            ViewBag.VenueId = new SelectList(service.GetVenues(), "VenueId", "VenueName");
             return View();
         }
         //Add code here
@@ -68,6 +71,8 @@ namespace RedBadgeProject.Controllers
                     EventName = detail.EventName,
                     EventType = detail.EventType,
                     VenueName = detail.VenueName,
+                    PriceGA = detail.PriceGA,
+                    PriceVIP = detail.PriceVIP,
                     DateTime = detail.DateTime,
                     Description = detail.Description
                 };
@@ -124,6 +129,12 @@ namespace RedBadgeProject.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new EventService(userId);
+            return service;
+        }
+        private VenueService CreateVenueService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VenueService(userId);
             return service;
         }
     }

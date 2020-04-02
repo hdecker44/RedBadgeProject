@@ -12,6 +12,8 @@ namespace RedBadge.Data
         [Key]
         public int VenueId { get; set; }
         [Required]
+        public Guid OwnerId { get; set; }
+        [Required]
         public string VenueName { get; set; }
         [Required]
         public string StreetNumber { get; set; }
@@ -29,8 +31,12 @@ namespace RedBadge.Data
                 return StreetNumber + ", " + City + ", " + State + " " + ZipCode;
             }
         }
-        [Required]
-        public int NumberOfSeats { get; set; }
 
+        [Required]
+        public int NumberOfVIP { get; set; }
+        [Required]
+        public int NumberOfGA { get; set; }
+        public int NumberOfSeats { get => NumberOfGA + NumberOfVIP; }
+        public IEnumerable<Venue> Venues { get; set; }
     }
 }

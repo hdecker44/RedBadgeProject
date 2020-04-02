@@ -11,18 +11,28 @@ namespace RedBadge.Data
     public class Event
     {
         public enum EventTypes { Concert, Comedy, Play, Basketball, Baseball, Football, Soccer, Hockey} 
+
         [Key]
         public int EventId { get; set; }
+
         [Required]
         public Guid OwnerId { get; set; }
 
         [Required]
         public string EventName { get; set; }
+
         [Required]
         public EventTypes EventType  { get; set; }
+
+        [Required]
+        [ForeignKey("Venue")]
+        public int VenueId { get; set; }
+
+        //VenueFK
         [Required]
         public string VenueName { get; set; }
 
+        //VenueFK
         [Required]
         public string Location { get; set; }
 
@@ -30,7 +40,58 @@ namespace RedBadge.Data
         public DateTime DateTime { get; set; }
 
         [Required]
+        public double PriceVIP { get; set; }
+
+        [Required]
+        public double PriceGA { get; set; }
+
+        //VenueFK
+        [Required]
         public int NumberOfSeats { get; set; }
+
+        //VenueFK
+        [Required]
+        public int NumberOfVIP { get; set; }
+
+        //VenueFK
+        [Required]
+        public int NumberOfGA { get; set; }
+
+        [Required]
+        public int VIPAvailable
+        {
+            get
+            {
+                int vipAvailable = NumberOfVIP;
+
+                /*foreach(var ticket in list)
+                {
+                    if(ticket.EventId == EventId && ticket.EventType == "VIP")
+                    {
+                        vipAvailable -= 1;
+                    }
+                }*/
+                return vipAvailable;
+            }
+        }
+
+        [Required]
+        public int GAAvailable
+        {
+            get
+            {
+                int gaAvailable = NumberOfGA;
+
+                /*foreach(var ticket in list)
+                {
+                    if(ticket.EventId == EventId && ticket.EventType == "GA")
+                    {
+                        gaAvailable -= 1;
+                    }
+                }*/
+                return gaAvailable;
+            }
+        }
 
         [Required]
         public int SeatsAvailable

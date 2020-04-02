@@ -9,15 +9,14 @@ using System.Web.Mvc;
 
 namespace RedBadgeProject.Controllers
 {
-    [Authorize]
-    public class TicketController : Controller
+    public class VenueController : Controller
     {
         // GET: Ticket
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new TicketService(userId);
-            var model = service.GetTickets();
+            var service = new VenueService(userId);
+            var model = service.GetVenues();
 
             return View(model);
         }
@@ -31,20 +30,20 @@ namespace RedBadgeProject.Controllers
         //Add code here
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(TicketCreate model)
+        public ActionResult Create(VenueCreate model)
         {
             if (!ModelState.IsValid) return View(model);
 
 
-            var service = CreateTicketService();
+            var service = CreateVenueService();
 
-            if (service.CreateTicket(model))
+            if (service.CreateVenue(model))
             {
-                TempData["SaveResult"] = "Your ticket was created.";
+                TempData["SaveResult"] = "Your Venue was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Ticket could not be created");
+            ModelState.AddModelError("", "Venue could not be created");
 
             return View(model);
 
@@ -52,54 +51,59 @@ namespace RedBadgeProject.Controllers
 
         public ActionResult Details(int id)
         {
-            var svc = CreateTicketService();
-            var model = svc.GetTicketById(id);
+            var svc = CreateVenueService();
+            var model = svc.GetVenueById(id);
 
             return View(model);
         }
         public ActionResult Edit(int id)
         {
-            var service = CreateTicketService();
-            var detail = service.GetTicketById(id);
+            var service = CreateVenueService();
+            var detail = service.GetVenueById(id);
             var model =
-                new TicketEdit
+                new VenueEdit
                 {
-                    TicketId = detail.TicketId,
-                    EventName = detail.EventName,
-                    Seat = detail.Seat,
+                    VenueId = detail.VenueId,
+                    VenueName = detail.VenueName,
+                    StreetNumber = detail.StreetNumber,
+                    City = detail.City,
+                    State = detail.State,
+                    ZipCode = detail.ZipCode,
+                    NumberOfGA = detail.NumberOfGA,
+                    NumberOfVIP = detail.NumberOfVIP
                 };
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, TicketEdit model)
+        public ActionResult Edit(int id, VenueEdit model)
         {
             if (!ModelState.IsValid) return View();
 
-            if (model.TicketId != id)
+            if (model.VenueId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var service = CreateTicketService();
+            var service = CreateVenueService();
 
-            if (service.UpdateTicket(model))
+            if (service.UpdateVenue(model))
             {
-                TempData["SaveResult"] = "Your ticket was updated.";
+                TempData["SaveResult"] = "Your Venue was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your ticket could not be updated.");
+            ModelState.AddModelError("", "Your Venue could not be updated.");
             return View(model);
         }
 
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var svc = CreateTicketService();
-            var model = svc.GetTicketById(id);
+            var svc = CreateVenueService();
+            var model = svc.GetVenueById(id);
 
             return View(model);
         }
@@ -109,18 +113,18 @@ namespace RedBadgeProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateTicketService();
+            var service = CreateVenueService();
 
-            service.DeleteTicket(id);
+            service.DeleteVenue(id);
 
-            TempData["SaveResult"] = "Your ticket was deleted";
+            TempData["SaveResult"] = "Your Venue was deleted";
 
             return RedirectToAction("Index");
         }
-        private TicketService CreateTicketService()
+        private VenueService CreateVenueService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new TicketService(userId);
+            var service = new VenueService(userId);
             return service;
         }
     }

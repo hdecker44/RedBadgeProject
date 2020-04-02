@@ -42,17 +42,9 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SeatNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SeatNumber)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TicketId }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

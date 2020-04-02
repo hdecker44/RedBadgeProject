@@ -22,6 +22,12 @@ namespace RedBadge.Models
         [Display(Name = "Venue")]
         public string VenueName { get; set; }
 
+        [Display(Name ="GA Price")]
+        public double PriceGA { get; set; }
+
+        [Display(Name = "VIP Price")]
+        public double PriceVIP { get; set; }
+
         [Display(Name = "Date")]
         public DateTime DateTime { get; set; }
 

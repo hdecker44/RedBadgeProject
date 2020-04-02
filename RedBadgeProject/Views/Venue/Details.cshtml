@@ -1,0 +1,90 @@
+﻿@model RedBadge.Models.VenueDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VenueDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfVIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfVIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfGA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfGA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
