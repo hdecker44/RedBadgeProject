@@ -66,6 +66,7 @@ namespace RedBadgeProject.Controllers
                 {
                     EventId = detail.EventId,
                     EventName = detail.EventName,
+                    EventType = detail.EventType,
                     VenueName = detail.VenueName,
                     DateTime = detail.DateTime,
                     Description = detail.Description

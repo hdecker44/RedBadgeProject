@@ -10,7 +10,7 @@ namespace RedBadge.Data
 {
     public class Ticket
     {
-        public enum SeatType { VIP, GA, Upper, Lower, Middle, Nosebleeds}
+        public enum SeatType { VIP, GA}
         [Key]
         public int TicketId { get; set; }
         [Required]

@@ -62,9 +62,7 @@
       <DependentUpon>202004012049356_restart.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="OtherEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SportEvent.cs" />
     <Compile Include="Tickets.cs" />
     <Compile Include="Venue.cs" />
   </ItemGroup>

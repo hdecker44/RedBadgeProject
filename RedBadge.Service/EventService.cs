@@ -23,6 +23,7 @@ namespace RedBadge.Service
                 {
                     OwnerId = _userId,
                     EventName = model.EventName,
+                    EventType = model.EventType,
                     VenueName = model.VenueName,
                     DateTime = model.DateTime
                 };
@@ -47,6 +48,7 @@ namespace RedBadge.Service
                                 {
                                     EventId = e.EventId,
                                     EventName = e.EventName,
+                                    EventType = e.EventType,
                                     VenueName = e.VenueName,
                                     Location = e.Location,
                                     DateTime = e.DateTime,
@@ -70,6 +72,7 @@ namespace RedBadge.Service
                     {
                         EventId = entity.EventId,
                         EventName = entity.EventName,
+                        EventType = entity.EventType,
                         VenueName = entity.VenueName,
                         Location = entity.Location,
                         DateTime = entity.DateTime,
@@ -78,8 +81,6 @@ namespace RedBadge.Service
                         NumberOfTicketsSold = entity.NumberOfTicketsSold,
                         SoldOut = entity.SoldOut,
                         Description = entity.Description,
-                        AvailableTickets = entity.AvailableTickets,
-                        SoldTickets = entity.SoldTickets
                     };
             }
         }

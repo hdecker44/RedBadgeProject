@@ -10,6 +10,7 @@ namespace RedBadge.Data
 {
     public class Event
     {
+        public enum EventTypes { Concert, Comedy, Play, Basketball, Baseball, Football, Soccer, Hockey} 
         [Key]
         public int EventId { get; set; }
         [Required]
@@ -17,6 +18,8 @@ namespace RedBadge.Data
 
         [Required]
         public string EventName { get; set; }
+        [Required]
+        public EventTypes EventType  { get; set; }
         [Required]
         public string VenueName { get; set; }
 
@@ -42,12 +45,16 @@ namespace RedBadge.Data
         {
             get
             {
-                int numberOfTicketsSold = 0;
-                foreach(var ticket in SoldTickets)
+                int ticketsSold = 0;
+
+                /*foreach(var ticket in list)
                 {
-                    numberOfTicketsSold += 1;
-                }
-                return numberOfTicketsSold;
+                    if (ticket.EventId == EventId)
+                    {
+                        ticketsSold += 1;
+                    }
+                }*/
+                return ticketsSold;
             }
         }
 
@@ -65,8 +72,7 @@ namespace RedBadge.Data
         }
         [Required]
         public string Description { get; set; }
-        public ICollection<Ticket> AvailableTickets { get; set; }
-        public ICollection<Ticket> SoldTickets { get; set; }
+
         public virtual Venue Venue { get; set; }
     }
 }
