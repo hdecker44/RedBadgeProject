@@ -21,10 +21,7 @@
             @Html.DisplayNameFor(model => model.City)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NumberOfVIP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfGA)
+            @Html.DisplayNameFor(model => model.Seats)
         </th>
         <th></th>
     </tr>
@@ -42,15 +39,12 @@
                 @Html.DisplayFor(modelItem => item.City)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberOfVIP)
+                @Html.DisplayFor(modelItem => item.Seats)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberOfGA)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {  id=item.VenueId  }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.VenueId  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.VenueId  })
             </td>
         </tr>
     }

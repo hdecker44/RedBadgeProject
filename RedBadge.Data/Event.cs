@@ -29,111 +29,109 @@ namespace RedBadge.Data
         public int VenueId { get; set; }
 
         //VenueFK
-        [Required]
-        public string VenueName { get; set; }
+        //[Required]
+        //public string VenueName { get; set; }
 
         //VenueFK
-        [Required]
-        public string Location { get; set; }
+        //[Required]
+        //public string Location { get; set; }
 
         [Required]
         public DateTime DateTime { get; set; }
 
         [Required]
-        public double PriceVIP { get; set; }
-
-        [Required]
-        public double PriceGA { get; set; }
+        public double Price { get; set; }
 
         //VenueFK
-        [Required]
-        public int NumberOfSeats { get; set; }
+        //[Required]
+        //public int NumberOfSeats { get; set; }
 
-        //VenueFK
-        [Required]
-        public int NumberOfVIP { get; set; }
+        ////VenueFK
+        //[Required]
+        //public int NumberOfVIP { get; set; }
 
-        //VenueFK
-        [Required]
-        public int NumberOfGA { get; set; }
+        ////VenueFK
+        //[Required]
+        //public int NumberOfGA { get; set; }
 
-        [Required]
-        public int VIPAvailable
-        {
-            get
-            {
-                int vipAvailable = NumberOfVIP;
+        //[Required]
+        //public int VIPAvailable
+        //{
+        //    get
+        //    {
+        //        int vipAvailable = NumberOfVIP;
 
-                /*foreach(var ticket in list)
-                {
-                    if(ticket.EventId == EventId && ticket.EventType == "VIP")
-                    {
-                        vipAvailable -= 1;
-                    }
-                }*/
-                return vipAvailable;
-            }
-        }
+        //        /*foreach(var ticket in list)
+        //        {
+        //            if(ticket.EventId == EventId && ticket.EventType == "VIP")
+        //            {
+        //                vipAvailable -= 1;
+        //            }
+        //        }*/
+        //        return vipAvailable;
+        //    }
+        //}
 
-        [Required]
-        public int GAAvailable
-        {
-            get
-            {
-                int gaAvailable = NumberOfGA;
+        //[Required]
+        //public int GAAvailable
+        //{
+        //    get
+        //    {
+        //        int gaAvailable = NumberOfGA;
 
-                /*foreach(var ticket in list)
-                {
-                    if(ticket.EventId == EventId && ticket.EventType == "GA")
-                    {
-                        gaAvailable -= 1;
-                    }
-                }*/
-                return gaAvailable;
-            }
-        }
+        //        /*foreach(var ticket in list)
+        //        {
+        //            if(ticket.EventId == EventId && ticket.EventType == "GA")
+        //            {
+        //                gaAvailable -= 1;
+        //            }
+        //        }*/
+        //        return gaAvailable;
+        //    }
+        //}
 
-        [Required]
-        public int SeatsAvailable
-        {
-            get
-            {
-                return NumberOfSeats - NumberOfTicketsSold;
-            }
-        }
+        //[Required]
+        //public int SeatsAvailable
+        //{
+        //    get
+        //    {
+        //        return NumberOfSeats - NumberOfTicketsSold;
+        //    }
+        //}
 
-        public int NumberOfTicketsSold
-        {
-            get
-            {
-                int ticketsSold = 0;
+        //public int NumberOfTicketsSold
+        //{
+        //    get
+        //    {
+        //        int ticketsSold = 0;
 
-                /*foreach(var ticket in list)
-                {
-                    if (ticket.EventId == EventId)
-                    {
-                        ticketsSold += 1;
-                    }
-                }*/
-                return ticketsSold;
-            }
-        }
+        //        /*foreach(var ticket in list)
+        //        {
+        //            if (ticket.EventId == EventId)
+        //            {
+        //                ticketsSold += 1;
+        //            }
+        //        }*/
+        //        return ticketsSold;
+        //    }
+        //}
 
-        [Required]
-        public bool SoldOut
-        {
-            get
-            {
-                if(SeatsAvailable == 0)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
+        //[Required]
+        //public bool SoldOut
+        //{
+        //    get
+        //    {
+        //        if(SeatsAvailable == 0)
+        //        {
+        //            return true;
+        //        }
+        //        return false;
+        //    }
+        //}
         [Required]
         public string Description { get; set; }
 
         public virtual Venue Venue { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

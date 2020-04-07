@@ -28,36 +28,54 @@ namespace RedBadge.Models
         [Display(Name = "Date")]
         public DateTime DateTime { get; set; }
 
-        [Display(Name = "GA Price")]
-        public double PriceGA { get; set; }
+        public double Price { get; set; }
 
-        [Display(Name = "VIP Price")]
-        public double PriceVIP { get; set; }
 
         [Display(Name = "Number Of Seats")]
-        public int NumberOfSeats { get; set; }
-
-        [Display(Name ="VIP Seats")]
-        public int NumberOfVIP { get; set; }
-
-        [Display(Name = "GA Seats")]
-        public int NumberOfGA { get; set; }
-
-        [Display(Name = "VIP Seats Available")]
-        public int VIPAvailable { get; set; }
-
-        [Display(Name = "GA Seats Available")]
-        public int GAAvailable { get; set; }
+        public int Seats { get; set; }
 
         [Display(Name = "Seats Available")]
-        public int SeatsAvailable { get; set; }
+        public int SeatsAvailable
+        {
+            get
+            {
+                return Seats - NumberOfTicketsSold;
+            }
+        }
 
         [Display(Name = "Number Of Tickets Sold")]
-        public int NumberOfTicketsSold { get; set; }
+        public int NumberOfTicketsSold
+        {
+            get
+            {
+                int ticketsSold = 0;
 
+
+                foreach (var ticket in Tickets)
+                {
+                    if (ticket.Event == EventName)
+                    {
+                        ticketsSold += 1;
+                    }
+                }
+                return ticketsSold;
+
+            }
+        }
         [Display(Name = "Sold Out?")]
-        public bool SoldOut { get; set; }
+        public bool SoldOut
+        {
+            get
+            {
+                if (SeatsAvailable == 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
 
         public string Description { get; set; }
+        public List<TicketListItem> Tickets { get; set; }
     }
 }

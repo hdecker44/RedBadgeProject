@@ -25,9 +25,9 @@ namespace RedBadge.Service
                     EventName = model.EventName,
                     EventType = model.EventType,
                     VenueId = model.VenueId,
-                    PriceGA = model.PriceGA,
-                    PriceVIP = model.PriceVIP,
-                    DateTime = model.DateTime
+                    Price = model.Price,
+                    DateTime = model.DateTime,
+                    Description = model.Description
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -51,11 +51,10 @@ namespace RedBadge.Service
                                     EventId = e.EventId,
                                     EventName = e.EventName,
                                     EventType = e.EventType,
-                                    VenueName = e.VenueName,
-                                    Location = e.Location,
+                                    VenueName = e.Venue.VenueName,
+                                    Location = e.Venue.City,
                                     DateTime = e.DateTime,
-                                    PriceGA = e.PriceGA,
-                                    //SoldOut = e.SoldOut
+                                    Price = e.Price,
                                 }
                         );
 
@@ -76,23 +75,39 @@ namespace RedBadge.Service
                         EventId = entity.EventId,
                         EventName = entity.EventName,
                         EventType = entity.EventType,
-                        VenueName = entity.VenueName,
-                        Location = entity.Location,
+                        VenueName = entity.Venue.VenueName,
+                        Location = entity.Venue.Location,
                         DateTime = entity.DateTime,
-                        PriceGA = entity.PriceGA,
-                        PriceVIP = entity.PriceVIP,
-                        NumberOfSeats = entity.NumberOfSeats,
-                        NumberOfVIP = entity.NumberOfVIP,
-                        NumberOfGA = entity.NumberOfGA,
-                        VIPAvailable = entity.VIPAvailable,
-                        GAAvailable = entity.GAAvailable,
-                        SeatsAvailable = entity.SeatsAvailable,
-                        NumberOfTicketsSold = entity.NumberOfTicketsSold,
-                        SoldOut = entity.SoldOut,
+                        Price = entity.Price,
+                        Seats = entity.Venue.Seats,
                         Description = entity.Description,
+                        Tickets =  ConvertICollectionTicketstoList(entity.Tickets)
+
                     };
             }
         }
+
+        public List<TicketListItem> ConvertICollectionTicketstoList(ICollection<Ticket> originalList)       
+        {
+            // instantiate a new List of TicketListItems
+            List<TicketListItem> tickets = new List<TicketListItem>();
+            // foreach through originalList and create new TicketListItem for each Ticket
+            foreach(var ticket in originalList)
+            {
+                var entity = new TicketListItem
+                {
+                    TicketId = ticket.TicketId,
+                    Event = ticket.Event.EventName,
+                    Location = ticket.Event.Venue.Location,
+                    Price = ticket.Event.Price
+                };
+                tickets.Add(entity);
+            }
+            return tickets;
+            // add that listItem to our new List
+            // return the new List
+        }
+
         public bool UpdateEvent(EventEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -102,10 +117,10 @@ namespace RedBadge.Service
                         .Events
                         .Single(e => e.EventId == model.EventId && e.OwnerId == _userId);
 
+                entity.EventId = model.EventId;
                 entity.EventName = model.EventName;
-                entity.VenueName = model.VenueName;
-                entity.PriceGA = model.PriceGA;
-                entity.PriceVIP = model.PriceVIP;
+                entity.Venue.VenueName = model.VenueName;
+                entity.Price = model.Price;
                 entity.DateTime = model.DateTime;
                 entity.Description = model.Description;
 

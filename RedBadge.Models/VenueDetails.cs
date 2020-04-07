@@ -20,12 +20,7 @@ namespace RedBadge.Models
         public int ZipCode { get; set; }
 
         [Display(Name = "Number Of Seats")]
-        public int NumberOfSeats { get; set; }
+        public int Seats { get; set; }
 
-        [Display(Name = "Number Of VIP Seats")]
-        public int NumberOfVIP { get; set; }
-
-        [Display(Name = "Number Of GA Seats")]
-        public int NumberOfGA { get; set; }
     }
 }

@@ -27,10 +27,10 @@
             @Html.DisplayNameFor(model => model.DateTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PriceGA)
+            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SoldOut)
+            Tickets
         </th>
         <th></th>
     </tr>
@@ -53,15 +53,15 @@
             @Html.DisplayFor(modelItem => item.DateTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PriceGA)
+            @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SoldOut)
+            @Html.ActionLink("Purchase", "CreateTicketFromEvent", "Ticket", new { id = item.EventId }, null)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.EventId}) |
+            @Html.ActionLink("Details", "Details", new { id=item.EventId}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EventId}) |
         </td>
     </tr>
 }

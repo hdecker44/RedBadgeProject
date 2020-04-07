@@ -71,8 +71,7 @@ namespace RedBadgeProject.Controllers
                     EventName = detail.EventName,
                     EventType = detail.EventType,
                     VenueName = detail.VenueName,
-                    PriceGA = detail.PriceGA,
-                    PriceVIP = detail.PriceVIP,
+                    Price = detail.Price,
                     DateTime = detail.DateTime,
                     Description = detail.Description
                 };

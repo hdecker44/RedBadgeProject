@@ -22,8 +22,7 @@ namespace RedBadge.Service
                 new Ticket()
                 {
                     OwnerId = _userId,
-                    EventName = model.EventName,
-                    Seat = model.Seat,
+                    EventId = model.EventId,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -45,10 +44,9 @@ namespace RedBadge.Service
                                 new TicketListItem
                                 {
                                     TicketId =e.TicketId,
-                                    Event = e.EventName,
-                                    Location = e.Location,
-                                    Price = e.Price,
-                                    Seat = e.Seat,
+                                    Event = e.Event.EventName,
+                                    Location = e.Event.Venue.City,
+                                    Price = e.Event.Price,
                                 }
                         );
 
@@ -67,10 +65,9 @@ namespace RedBadge.Service
                     new TicketDetails
                     {
                         TicketId = entity.TicketId,
-                        EventName = entity.EventName,
-                        Location = entity.Location,
-                        Price = entity.Price,
-                        Seat = entity.Seat,
+                        EventName = entity.Event.EventName,
+                        Location = entity.Event.Venue.City,
+                        Price = entity.Event.Price,
                     };
             }
         }
@@ -83,8 +80,7 @@ namespace RedBadge.Service
                         .Tickets
                         .Single(e => e.TicketId == model.TicketId && e.OwnerId == _userId);
 
-                entity.EventName = model.EventName;
-                entity.Seat = model.Seat;
+                entity.Event.EventName = model.EventName;
      
 
                 return ctx.SaveChanges() == 1;

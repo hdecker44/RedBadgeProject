@@ -20,6 +20,5 @@ namespace RedBadge.Models
 
         public double Price { get; set; }
 
-        public SeatType Seat { get; set; }
     }
 }

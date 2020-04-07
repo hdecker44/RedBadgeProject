@@ -26,6 +26,9 @@ namespace RedBadgeProject.Controllers
         //GET
         public ActionResult Create()
         {
+            var service = CreateEventService();
+
+            ViewBag.EventId = new SelectList(service.GetEvents(), "EventId", "EventName");
             return View();
         }
         //Add code here
@@ -49,6 +52,19 @@ namespace RedBadgeProject.Controllers
             return View(model);
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateTicketFromEvent(int id)
+        {
+            var service = CreateEventService();
+            var even = service.GetEventById(id);
+            ViewBag.EventName = even.EventName;
+            var ticketCreate = new TicketCreate
+            {
+                EventId = id
+            };
+            return View(ticketCreate);
+        }
 
         public ActionResult Details(int id)
         {
@@ -66,7 +82,6 @@ namespace RedBadgeProject.Controllers
                 {
                     TicketId = detail.TicketId,
                     EventName = detail.EventName,
-                    Seat = detail.Seat,
                 };
             return View(model);
         }
@@ -121,6 +136,12 @@ namespace RedBadgeProject.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new TicketService(userId);
+            return service;
+        }
+        private EventService CreateEventService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userId);
             return service;
         }
     }

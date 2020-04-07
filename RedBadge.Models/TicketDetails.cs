@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RedBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,7 +20,5 @@ namespace RedBadge.Models
         public string Location { get; set; }
 
         public double Price { get; set; }
-
-        public SeatType Seat { get; set; }
     }
 }

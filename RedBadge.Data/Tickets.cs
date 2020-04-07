@@ -10,7 +10,6 @@ namespace RedBadge.Data
 {
     public class Ticket
     {
-        public enum SeatType { VIP, GA}
         [Key]
         public int TicketId { get; set; }
         [Required]
@@ -21,35 +20,34 @@ namespace RedBadge.Data
         //EventFK
         public int EventId { get; set; }
 
-        [Required]
-        //EventFK
-        public string EventName { get; set; }
+        //[Required]
+        ////EventFK
+        //public string EventName { get; set; }
 
-        [Required]
-        //EventFK
-        public string Location { get; set; }
+        //[Required]
+        ////EventFK
+        //public string Location { get; set; }
 
-        [Required]
-        public double Price
-        {
-            get
-            {
-                double price;
-                if(Seat == 0)
-                {
-                    price = Event.PriceVIP;
-                }
-                else
-                {
-                    price = Event.PriceGA;
-                }
-                return price;
-            }
-        }
+        //[Required]
+        //public double Price
+        //{
+        //    get
+        //    {
+        //        double price;
+        //        if(Seat == 0)
+        //        {
+        //            price = Event.PriceVIP;
+        //        }
+        //        else
+        //        {
+        //            price = Event.PriceGA;
+        //        }
+        //        return price;
+        //    }
+        //}
 
-        [Required]
-        public SeatType Seat { get; set; }
         public virtual Event Event { get; set; }
+        public List<Ticket> TicketsList { get; set; }
 
     }
 }

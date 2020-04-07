@@ -33,10 +33,7 @@ namespace RedBadge.Data
         }
 
         [Required]
-        public int NumberOfVIP { get; set; }
-        [Required]
-        public int NumberOfGA { get; set; }
-        public int NumberOfSeats { get => NumberOfGA + NumberOfVIP; }
-        public IEnumerable<Venue> Venues { get; set; }
+        public int Seats { get; set; }
+        public ICollection<Event> Events { get; set; }
     }
 }

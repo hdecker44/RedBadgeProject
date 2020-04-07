@@ -17,10 +17,8 @@ namespace RedBadge.Models
 
         public string City { get; set; }
 
-        [Display(Name = "Number Of VIP Seats")]
-        public int NumberOfVIP { get; set; }
+        [Display(Name = "Number Of Seats")]
+        public int Seats { get; set; }
 
-        [Display(Name = "Number Of GA Seats")]
-        public int NumberOfGA { get; set; }
     }
 }

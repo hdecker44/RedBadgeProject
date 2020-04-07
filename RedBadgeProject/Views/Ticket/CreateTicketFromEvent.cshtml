@@ -1,13 +1,13 @@
-﻿@model RedBadge.Models.TicketDetails
+﻿@model RedBadge.Models.TicketListItem
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "CreateTicketFromEvent";
 }
 
-<h2>Details</h2>
+<h2>CreateTicketFromEvent</h2>
 
 <div>
-    <h4>TicketDetails</h4>
+    <h4>TicketListItem</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,11 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventName)
+            @Html.DisplayNameFor(model => model.Event)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EventName)
+            @Html.DisplayFor(model => model.Event)
         </dd>
 
         <dt>
