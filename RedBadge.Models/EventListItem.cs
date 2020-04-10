@@ -29,6 +29,48 @@ namespace RedBadge.Models
         public DateTime DateTime { get; set; }
 
         public double Price { get; set; }
+        public int VenueId { get; set; }
+        public string Image
+        {
+            get
+            {
+                string image = "Content/assets/";
+                if (EventType == EventTypes.Comedy)
+                {
+                    image += "comedy.png";
+                }
+                else if (EventType == EventTypes.Play)
+                {
+                    image += "play.png";
+                }
+                else if (EventType == EventTypes.Concert)
+                {
+                    image += "concert.png";
+                }
+                else if (EventType == EventTypes.Football)
+                {
+                    image += "nfl.png";
+                }
+                else if (EventType == EventTypes.Baseball)
+                {
+                    image += "mlb.png";
+                }
+                else if (EventType == EventTypes.Soccer)
+                {
+                    image += "soccer.png";
+                }
+                else if (EventType == EventTypes.Basketball)
+                {
+                    image += "nba.png";
+                }
+                else if (EventType == EventTypes.Hockey)
+                {
+                    image += "hockey.png";
+                }
+                return image;
+            }
+            set { }
+        }
 
         //[Display(Name = "Sold Out?")]
         //public bool SoldOut { get; set; }

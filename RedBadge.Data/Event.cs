@@ -28,6 +28,82 @@ namespace RedBadge.Data
         [ForeignKey("Venue")]
         public int VenueId { get; set; }
 
+        [Required]
+        public DateTime DateTime { get; set; }
+
+        [Required]
+        public double Price { get; set; }
+        [Required]
+        public bool SoldOut
+        {
+            get
+            {
+                int tickets = 25;
+                if (Tickets == null)
+                {
+                    return false;
+                }
+                foreach (var ticket in Tickets)
+                {
+                    if (ticket.EventId == EventId)
+                    {
+                        tickets -= 1;
+                    }
+                }
+                if(tickets == 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+        [Required]
+        public string Description { get; set; }
+
+        public virtual Venue Venue { get; set; }
+        public string Image
+        {
+            get
+            {
+                string image = "assets/";
+                if (EventType == EventTypes.Comedy)
+                {
+                    image += "comedy.png";
+                }
+                else if (EventType == EventTypes.Play)
+                {
+                    image += "play.png";
+                }
+                else if (EventType == EventTypes.Concert)
+                {
+                    image += "concert.png";
+                }
+                else if (EventType == EventTypes.Football)
+                {
+                    image += "nfl.png";
+                }
+                else if (EventType == EventTypes.Baseball)
+                {
+                    image += "mlb.png";
+                }
+                else if (EventType == EventTypes.Soccer)
+                {
+                    image += "soccer.png";
+                }
+                else if (EventType == EventTypes.Basketball)
+                {
+                    image += "nba.png";
+                }
+                else if (EventType == EventTypes.Hockey)
+                {
+                    image += "hockey.png";
+                }
+                return image;
+            }
+            set { }
+        }
+        public virtual ICollection<Ticket> Tickets { get; set; }
+    }
         //VenueFK
         //[Required]
         //public string VenueName { get; set; }
@@ -36,11 +112,6 @@ namespace RedBadge.Data
         //[Required]
         //public string Location { get; set; }
 
-        [Required]
-        public DateTime DateTime { get; set; }
-
-        [Required]
-        public double Price { get; set; }
 
         //VenueFK
         //[Required]
@@ -116,22 +187,4 @@ namespace RedBadge.Data
         //    }
         //}
 
-        //[Required]
-        //public bool SoldOut
-        //{
-        //    get
-        //    {
-        //        if(SeatsAvailable == 0)
-        //        {
-        //            return true;
-        //        }
-        //        return false;
-        //    }
-        //}
-        [Required]
-        public string Description { get; set; }
-
-        public virtual Venue Venue { get; set; }
-        public virtual ICollection<Ticket> Tickets { get; set; }
-    }
 }

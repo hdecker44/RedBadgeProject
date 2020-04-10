@@ -66,6 +66,7 @@ namespace RedBadge.Service
                     ctx
                         .Venues
                         .Single(e => e.VenueId == id && e.OwnerId == _userId);
+                var allEvents = entity.Events.ToList();
                 return
                     new VenueDetails
                     {
@@ -75,8 +76,8 @@ namespace RedBadge.Service
                         City = entity.City,
                         State = entity.State,
                         ZipCode = entity.ZipCode,
-                        Seats = entity.Seats
-
+                        Seats = entity.Seats,
+                        AllEvents = allEvents.Select(e => new EventListItem { EventId = e.EventId, EventName = e.EventName, EventType = e.EventType, DateTime = e.DateTime, VenueId = e.VenueId, VenueName = e.Venue.VenueName, Location = e.Venue.Location, Price = e.Price }).ToList()
                     };
             }
         }

@@ -61,20 +61,21 @@ namespace RedBadge.Models
                 return ticketsSold;
 
             }
+            set { }
         }
         [Display(Name = "Sold Out?")]
         public bool SoldOut
         {
             get
             {
-                if (SeatsAvailable == 0)
+                if (SeatsAvailable <= 0)
                 {
                     return true;
                 }
                 return false;
             }
+            set { }
         }
-
         public string Description { get; set; }
         public List<TicketListItem> Tickets { get; set; }
     }

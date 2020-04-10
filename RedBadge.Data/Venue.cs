@@ -34,6 +34,6 @@ namespace RedBadge.Data
 
         [Required]
         public int Seats { get; set; }
-        public ICollection<Event> Events { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

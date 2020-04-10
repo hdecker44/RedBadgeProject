@@ -51,10 +51,14 @@ namespace RedBadge.Service
                                     EventId = e.EventId,
                                     EventName = e.EventName,
                                     EventType = e.EventType,
+                                    Image = e.Image,
                                     VenueName = e.Venue.VenueName,
                                     Location = e.Venue.City,
                                     DateTime = e.DateTime,
                                     Price = e.Price,
+                                    VenueId = e.VenueId
+                                    
+                                    //SoldOut = e.SoldOut
                                 }
                         );
 
@@ -81,8 +85,8 @@ namespace RedBadge.Service
                         Price = entity.Price,
                         Seats = entity.Venue.Seats,
                         Description = entity.Description,
-                        Tickets =  ConvertICollectionTicketstoList(entity.Tickets)
-
+                        Tickets =  ConvertICollectionTicketstoList(entity.Tickets),
+                        SoldOut = entity.SoldOut
                     };
             }
         }

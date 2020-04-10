@@ -68,6 +68,54 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.VenueId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VenueId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<table class="table">
+    <tr>
+        <th>
+            Event
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+
+    @foreach (var item in Model.AllEvents)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Purchase", "Create", "Ticket"@*new { id = item.EventId }*@)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EventId }) |
+            </td>
+        </tr>
+    }
+
+</table>
+

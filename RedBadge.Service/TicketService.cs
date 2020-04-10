@@ -45,6 +45,7 @@ namespace RedBadge.Service
                                 {
                                     TicketId =e.TicketId,
                                     Event = e.Event.EventName,
+                                    EventType = e.Event.EventType,
                                     Location = e.Event.Venue.City,
                                     Price = e.Event.Price,
                                 }

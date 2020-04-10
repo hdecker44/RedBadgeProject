@@ -30,40 +30,61 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            Tickets
+            Ticket
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VenueName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Purchase", "CreateTicketFromEvent", "Ticket", new { id = item.EventId }, null)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId}) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId}) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId}) |
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.ActionLink(Html.DisplayFor(modelItem => item.VenueName).ToHtmlString(), "Details", "Venue", new { id = item.VenueId }, null) @*new { id = item. }, null)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Purchase", "Create", "Ticket" @*new { id = item.EventId }*@)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EventId }) |
+            </td>
+        </tr>
+    }
 </table>
+    @foreach (var item in Model)
+    {
+        <div class="col-med-3 col-sm-3 col-xs-6" style="margin-bottom: 8px">
+            <div class="thumbnail event-item" style="height: 300px">
+                <img class="img-responsive" style="cursor:pointer; height:160px; width: 100%;"  src=@Html.DisplayFor(modelitem => item.Image)>
+                <div class="eventInfo">
+                    <h5>@Html.DisplayFor(modelItem => item.EventName) </h5>
+                    <h5>@Html.DisplayFor(modelItem => item.VenueName) </h5>
+                    <h5>@Html.DisplayFor(modelItem => item.Price) </h5>
+                    <h5>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EventId }) |
+                    </h5>
+
+                </div>
+            </div>
+
+        </div>
+    }
+
