@@ -38,7 +38,7 @@ namespace RedBadge.Service
                 var query =
                     ctx
                         .Tickets
-                        .Where(e => e.OwnerId == _userId)
+                        //.Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new TicketListItem
@@ -61,7 +61,7 @@ namespace RedBadge.Service
                 var entity =
                     ctx
                         .Tickets
-                        .Single(e => e.TicketId == id && e.OwnerId == _userId);
+                        .Single(e => e.TicketId == id /*&& e.OwnerId == _userId*/);
                 return
                     new TicketDetails
                     {

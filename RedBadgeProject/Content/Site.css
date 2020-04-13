@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+.event {
+    text-align: center;
+    background-color: lightblue;
+    color: black;
+}
+.event h4{
+    font: bold;
+}

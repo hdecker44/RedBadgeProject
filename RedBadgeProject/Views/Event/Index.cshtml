@@ -57,7 +57,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.ActionLink("Purchase", "Create", "Ticket" @*new { id = item.EventId }*@)
+                @Html.ActionLink("Purchase", "Create", "Ticket"@*new { id = item.EventId }*@)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
@@ -67,13 +67,14 @@
         </tr>
     }
 </table>
-    @foreach (var item in Model)
-    {
+@foreach (var item in Model)
+{
+    <div class="event">
         <div class="col-med-3 col-sm-3 col-xs-6" style="margin-bottom: 8px">
             <div class="thumbnail event-item" style="height: 300px">
-                <img class="img-responsive" style="cursor:pointer; height:160px; width: 100%;"  src=@Html.DisplayFor(modelitem => item.Image)>
+                <img class="img-responsive" style="cursor:pointer; height:160px; width: 100%;" src=@Html.DisplayFor(modelitem => item.Image)>
                 <div class="eventInfo">
-                    <h5>@Html.DisplayFor(modelItem => item.EventName) </h5>
+                    <h4>@Html.DisplayFor(modelItem => item.EventName) </h4>
                     <h5>@Html.DisplayFor(modelItem => item.VenueName) </h5>
                     <h5>@Html.DisplayFor(modelItem => item.Price) </h5>
                     <h5>
@@ -84,7 +85,7 @@
 
                 </div>
             </div>
-
         </div>
-    }
+    </div>
+}
 
