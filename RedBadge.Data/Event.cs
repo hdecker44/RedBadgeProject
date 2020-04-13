@@ -13,7 +13,7 @@ namespace RedBadge.Data
         public enum EventTypes { Concert, Comedy, Play, Basketball, Baseball, Football, Soccer, Hockey} 
 
         [Key]
-        public int EventId { get; set; }
+        public int EventId { get; set;  }
 
         [Required]
         public Guid OwnerId { get; set; }
