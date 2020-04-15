@@ -21,6 +21,7 @@ namespace RedBadge.Models
 
         [Display(Name = "Number Of Seats")]
         public int Seats { get; set; }
+        public string Image { get; set; }
         public List<EventListItem> AllEvents { get; set; }
 
 

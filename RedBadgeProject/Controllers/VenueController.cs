@@ -69,7 +69,8 @@ namespace RedBadgeProject.Controllers
                     City = detail.City,
                     State = detail.State,
                     ZipCode = detail.ZipCode,
-                    Seats = detail.Seats
+                    Seats = detail.Seats,
+                    Image = detail.Image
                 };
             return View(model);
         }

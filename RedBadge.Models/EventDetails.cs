@@ -76,6 +76,47 @@ namespace RedBadge.Models
             }
             set { }
         }
+        public string Image
+        {
+            get
+            {
+                string image = "Content/assets/";
+                if (EventType == EventTypes.Comedy)
+                {
+                    image += "comedy.png";
+                }
+                else if (EventType == EventTypes.Play)
+                {
+                    image += "play.png";
+                }
+                else if (EventType == EventTypes.Concert)
+                {
+                    image += "concert.png";
+                }
+                else if (EventType == EventTypes.Football)
+                {
+                    image += "nfl.png";
+                }
+                else if (EventType == EventTypes.Baseball)
+                {
+                    image += "mlb.png";
+                }
+                else if (EventType == EventTypes.Soccer)
+                {
+                    image += "soccer.png";
+                }
+                else if (EventType == EventTypes.Basketball)
+                {
+                    image += "nba.png";
+                }
+                else if (EventType == EventTypes.Hockey)
+                {
+                    image += "hockey.png";
+                }
+                return image;
+            }
+            set { }
+        }
         public string Description { get; set; }
         public List<TicketListItem> Tickets { get; set; }
     }

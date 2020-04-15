@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Mvc;
 using RedBadge.Models;
 using RedBadge.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -18,6 +20,42 @@ namespace RedBadgeProject.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new EventService(userId);
             var model = service.GetEvents();
+
+            return View(model);
+        }
+        // GET: 
+        // GET: Ticket
+        public ActionResult EventComedy()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userId);
+            var model = service.GetEventsComedy();
+
+            return View(model);
+        }
+        public ActionResult EventPlay()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userId);
+            var model = service.GetEventsPlay();
+
+            return View(model);
+        }
+        // GET: Ticket
+        public ActionResult EventSport()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userId);
+            var model = service.GetEventsSport();
+
+            return View(model);
+        }
+        // GET: Ticket
+        public ActionResult EventConcert()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userId);
+            var model = service.GetEventsConcert();
 
             return View(model);
         }

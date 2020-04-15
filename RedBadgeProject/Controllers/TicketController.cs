@@ -40,7 +40,7 @@ namespace RedBadgeProject.Controllers
             var even = serviceEvent.GetEventById(model.EventId);
             if (even.SoldOut == true)
             {
-                TempData["SaveResult"] = "This Event is Sold Out.";
+                TempData["SaveResultNo"] = "Your Ticket was not created.  This Event is Sold Out.";
                 return RedirectToAction("Index");
             };
 
@@ -51,7 +51,7 @@ namespace RedBadgeProject.Controllers
 
             if (service.CreateTicket(model))
             {
-                TempData["SaveResult"] = "Your ticket was created.";
+                TempData["SaveResultYes"] = "Your ticket was created.";
                 return RedirectToAction("Index");
             };
 
@@ -61,19 +61,17 @@ namespace RedBadgeProject.Controllers
 
         }
 
+        //Add method here
+        //GET
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("CreateTicketFromEvent")]
-        public ActionResult CreateTicketFromEvent(TicketCreate ticket)
+        public ActionResult CreateTicketFromEvent(int eventId)
         {
             var service = CreateEventService();
-            var even = service.GetEventById(ticket.EventId);
-            ViewBag.EventName = even.EventName;
-            var ticketCreate = new TicketCreate
-            {
-                EventId = ticket.EventId
-            };
-            return View(ticketCreate);
+
+            ViewBag.EventId = new SelectList(service.GetEvents(), "EventId", "EventName");
+            return View();
         }
 
         public ActionResult Details(int id)

@@ -30,3 +30,13 @@ textarea {
 .event h4{
     font: bold;
 }
+#carousel{
+    height: 300px;
+}
+.type{
+    background-color: white;
+    text-align: center;
+}
+.eventDetails{
+    border: groove black 2px;
+}

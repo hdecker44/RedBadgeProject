@@ -3,102 +3,207 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="eventDetails">
+    <h2>@Html.DisplayFor(model => model.EventName) </h2>
 
-<h2>Details</h2>
+    <div style="display: flex; justify-content: flex-start; width: 100%;">
+        <div class="venueImage">
+            <img class="img-responsive" style="cursor:pointer; height:160px; max-width: 100%; margin-right: 40px" src="~/@Html.DisplayFor(model => model.Image)" />
+        </div>
+        <div class="venueInfo" style="display: flex; justify-content: space-between; margin-right: 40px">
+            <div>
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EventId)
+                    </dt>
 
-<div>
-    <h4>EventDetails</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EventId)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EventId)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventId)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EventName)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EventName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EventName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventName)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.VenueName)
-        </dt>
+                </dl>
+            </div>
+        </div>
+        <div class="venueInfo" style="display: flex; justify-content: space-between; margin-right: 40px">
+            <div>
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.VenueName)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.VenueName)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.VenueName)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Location)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Location)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DateTime)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateTime)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.DateTime)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Seats)
-        </dt>
+                    <dd>
+                        $@Html.DisplayFor(model => model.Price)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="venueInfo" style="display: flex; justify-content: space-between; margin-right: 40px">
+            <div>
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Seats)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Seats)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Seats)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SeatsAvailable)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SeatsAvailable)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SeatsAvailable)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SoldOut)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SeatsAvailable)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.SoldOut)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="venueInfo" style="display: flex; justify-content: space-between; margin-right: 40px">
+            <div>
+                <p class="btn btn-primary btn-lg">@Html.ActionLink("Purchase","Create", "Ticket")&raquo;</p>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfTicketsSold)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfTicketsSold)
-        </dd>
+    @*<div>
+            <h4>EventDetails</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.EventId)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoldOut)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EventId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoldOut)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EventName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EventName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.VenueName)
+                </dt>
 
-    </dl>
-</div>
+                <dd>
+                    @Html.DisplayFor(model => model.VenueName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateTime)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Seats)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Seats)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    $@Html.DisplayFor(model => model.Price)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SeatsAvailable)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SeatsAvailable)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NumberOfTicketsSold)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NumberOfTicketsSold)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SoldOut)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SoldOut)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+        </div>*@
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Edit", "Edit")</button>  |
+    <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Back To List", "Index")</button>
 </p>
+</div>

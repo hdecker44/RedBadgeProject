@@ -65,6 +65,122 @@ namespace RedBadge.Service
                 return query.ToArray();
             }
         }
+        public IEnumerable<EventListItem> GetEventsSport()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Events
+                        .Where(e => e.EventType == Event.EventTypes.Baseball | e.EventType == Event.EventTypes.Basketball | e.EventType == Event.EventTypes.Football | e.EventType == Event.EventTypes.Hockey | e.EventType == Event.EventTypes.Soccer)
+                        .Select(
+                            e =>
+                                new EventListItem
+                                {
+                                    EventId = e.EventId,
+                                    EventName = e.EventName,
+                                    EventType = e.EventType,
+                                    Image = e.Image,
+                                    VenueName = e.Venue.VenueName,
+                                    Location = e.Venue.City,
+                                    DateTime = e.DateTime,
+                                    Price = e.Price,
+                                    VenueId = e.VenueId
+
+                                    //SoldOut = e.SoldOut
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<EventListItem> GetEventsPlay()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Events
+                        .Where(e => e.EventType == Event.EventTypes.Play)
+                        .Select(
+                            e =>
+                                new EventListItem
+                                {
+                                    EventId = e.EventId,
+                                    EventName = e.EventName,
+                                    EventType = e.EventType,
+                                    Image = e.Image,
+                                    VenueName = e.Venue.VenueName,
+                                    Location = e.Venue.City,
+                                    DateTime = e.DateTime,
+                                    Price = e.Price,
+                                    VenueId = e.VenueId
+
+                                    //SoldOut = e.SoldOut
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<EventListItem> GetEventsComedy()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Events
+                        .Where(e => e.EventType == Event.EventTypes.Comedy)
+                        .Select(
+                            e =>
+                                new EventListItem
+                                {
+                                    EventId = e.EventId,
+                                    EventName = e.EventName,
+                                    EventType = e.EventType,
+                                    Image = e.Image,
+                                    VenueName = e.Venue.VenueName,
+                                    Location = e.Venue.City,
+                                    DateTime = e.DateTime,
+                                    Price = e.Price,
+                                    VenueId = e.VenueId
+
+                                    //SoldOut = e.SoldOut
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<EventListItem> GetEventsConcert()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Events
+                        .Where(e => e.EventType == Event.EventTypes.Concert)
+                        .Select(
+                            e =>
+                                new EventListItem
+                                {
+                                    EventId = e.EventId,
+                                    EventName = e.EventName,
+                                    EventType = e.EventType,
+                                    Image = e.Image,
+                                    VenueName = e.Venue.VenueName,
+                                    Location = e.Venue.City,
+                                    DateTime = e.DateTime,
+                                    Price = e.Price,
+                                    VenueId = e.VenueId
+
+                                    //SoldOut = e.SoldOut
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
         public EventDetails GetEventById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -86,6 +202,7 @@ namespace RedBadge.Service
                         Seats = entity.Venue.Seats,
                         Description = entity.Description,
                         Tickets =  ConvertICollectionTicketstoList(entity.Tickets),
+                        Image = entity.Image,
                         SoldOut = entity.SoldOut
                     };
             }

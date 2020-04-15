@@ -3,48 +3,48 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="venueDetails">
+    <h2>Ticket Details</h2>
 
-<h2>Details</h2>
+    <div>
 
-<div>
-    <h4>TicketDetails</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TicketId)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TicketId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TicketId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TicketId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EventName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EventName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+    <p>
+        <button type="button" class="btn btn-default btn-sm">@Html.ActionLink("Edit", "Edit")</button> 
+        <button type="button" class="btn btn-default btn-sm">@Html.ActionLink("Back To List", "Index")</button>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TicketId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

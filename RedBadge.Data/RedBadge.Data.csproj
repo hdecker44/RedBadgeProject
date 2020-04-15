@@ -93,9 +93,9 @@
     <Compile Include="Migrations\202004061733442_GAOnly.Designer.cs">
       <DependentUpon>202004061733442_GAOnly.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004101735232_Image.cs" />
-    <Compile Include="Migrations\202004101735232_Image.Designer.cs">
-      <DependentUpon>202004101735232_Image.cs</DependentUpon>
+    <Compile Include="Migrations\202004132006583_imageNew.cs" />
+    <Compile Include="Migrations\202004132006583_imageNew.Designer.cs">
+      <DependentUpon>202004132006583_imageNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,8 +134,8 @@
     <EmbeddedResource Include="Migrations\202004061733442_GAOnly.resx">
       <DependentUpon>202004061733442_GAOnly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004101735232_Image.resx">
-      <DependentUpon>202004101735232_Image.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004132006583_imageNew.resx">
+      <DependentUpon>202004132006583_imageNew.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

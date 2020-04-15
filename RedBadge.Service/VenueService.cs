@@ -27,7 +27,9 @@ namespace RedBadge.Service
                     City = model.City,
                     State = model.State,
                     ZipCode = model.ZipCode,
-                    Seats = model.Seats
+                    Seats = model.Seats,
+                    Image = model.Image
+
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -51,7 +53,8 @@ namespace RedBadge.Service
                                     VenueId = e.VenueId,
                                     VenueName = e.VenueName,
                                     City = e.City,
-                                    Seats = e.Seats
+                                    Seats = e.Seats,
+                                    Image = e.Image
                                 }
                         );
 
@@ -77,6 +80,7 @@ namespace RedBadge.Service
                         State = entity.State,
                         ZipCode = entity.ZipCode,
                         Seats = entity.Seats,
+                        Image = entity.Image,
                         AllEvents = allEvents.Select(e => new EventListItem { EventId = e.EventId, EventName = e.EventName, EventType = e.EventType, DateTime = e.DateTime, VenueId = e.VenueId, VenueName = e.Venue.VenueName, Location = e.Venue.Location, Price = e.Price }).ToList()
                     };
             }
@@ -97,6 +101,7 @@ namespace RedBadge.Service
                 entity.State = model.State;
                 entity.ZipCode = model.ZipCode;
                 entity.Seats = model.Seats;
+                entity.Image = model.Image;
 
 
                 return ctx.SaveChanges() == 1;
