@@ -3,19 +3,23 @@
 @{
     ViewBag.Title = "Index";
 }
-    <div class="displayEvents">
-        <h2>All Events</h2>
-        <p>
-            <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("All Events", "Index")</button>   |
-            <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Sports", "EventSport")</button>   |
-            <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Comedy", "EventComedy")</button>   |
-            <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Theatre", "EventPlay")</button>   |
-            <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Concert", "EventConcert")</button>   |
-        </p>
+<div class="displayEvents">
+    <h2>All Events</h2>
+    <p>
+        <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("All Events", "Index")</button>   |
+        <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Sports", "EventSport")</button>   |
+        <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Comedy", "EventComedy")</button>   |
+        <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Theatre", "EventPlay")</button>   |
+        <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Concert", "EventConcert")</button>   |
+    </p>
+    @if (User.IsInRole("Administrator"))
+    {
         <p>
             <button type="button" class="btn btn-default btn-sm">@Html.ActionLink("Create New", "Create")</button>
         </p>
-        @*<table class="table">
+
+    }
+    @*<table class="table">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.EventId)
@@ -72,31 +76,38 @@
                 </tr>
             }
         </table>*@
-        @foreach (var item in Model)
-        {
-            <div class="event">
-                <div class="col-med-3 col-sm-3 col-xs-6" style="margin-bottom: 8px">
-                    <div class="displayInfo">
-                        <div class="thumbnail event-item" style="height: 300px">
-                            <img class="img-responsive" style="cursor:pointer; height:160px; width: 100%;" src=@Html.DisplayFor(modelitem => item.Image)>
-                            <div class="eventInfo">
-                                <h4>@Html.DisplayFor(modelItem => item.EventName) </h4>
-                                <h5>
-                                    @Html.ActionLink(Html.DisplayFor(modelItem => item.VenueName).ToHtmlString(), "Details", "Venue", new { id = item.VenueId }, null)
-                                </h5>
-                                <h5>@Html.DisplayFor(modelItem => item.DateTime) </h5>
-                                <h5>$@Html.DisplayFor(modelItem => item.Price) </h5>
-                                <h5>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
-                                </h5>
-                                <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Purchase", "Create", "Ticket")</button>
-                            </div>
+    @foreach (var item in Model)
+    {
+        <div class="event">
+            <div class="col-med-3 col-sm-3 col-xs-6" style="margin-bottom: 8px">
+                <div class="displayInfo">
+                    <div class="thumbnail event-item" style="height: 300px">
+                        <img class="img-responsive" style="cursor:pointer; height:160px; width: 100%;" src=@Html.DisplayFor(modelitem => item.Image)>
+                        <div class="eventInfo">
+                            <h4>@Html.DisplayFor(modelItem => item.EventName) </h4>
+                            <h5>
+                                @Html.ActionLink(Html.DisplayFor(modelItem => item.VenueName).ToHtmlString(), "Details", "Venue", new { id = item.VenueId }, null)
+                            </h5>
+                            <h5>@Html.DisplayFor(modelItem => item.DateTime) </h5>
+                            <h5>$@Html.DisplayFor(modelItem => item.Price) </h5>
+                            <h5>
+                                @Html.ActionLink("Details  ", "Details", new { id = item.EventId })
+
+                                @{
+                                    if (User.IsInRole("Administrator"))
+                                    {
+                                        @Html.ActionLink("Edit  ", "Edit", new { id = item.EventId })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+                                    }
+                                }
+                            </h5>
+                            
+                            <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Purchase", "Create", "Ticket")</button>
                         </div>
                     </div>
                 </div>
             </div>
-        }
+        </div>
+    }
 
-    </div>
+</div>

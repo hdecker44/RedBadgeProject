@@ -12,9 +12,13 @@
             <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Theatre", "EventPlay")</button>   |
             <button type="button" class="btn btn-secondary btn-lg">@Html.ActionLink("Concert", "EventConcert")</button>   |
         </p>
-        <p>
-            <button type="button" class="btn btn-default btn-sm">@Html.ActionLink("Create New", "Create")</button>
-        </p>
+        @if (User.IsInRole("Administrator"))
+        {
+            <p>
+                <button type="button" class="btn btn-default btn-sm">@Html.ActionLink("Create New", "Create")</button>
+            </p>
+
+        }
         @*<table class="table">
             <tr>
                 <th>
@@ -87,9 +91,15 @@
                                 <h5>@Html.DisplayFor(modelItem => item.DateTime) </h5>
                                 <h5>$@Html.DisplayFor(modelItem => item.Price) </h5>
                                 <h5>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.EventId }) |
+                                    @Html.ActionLink("Details  ", "Details", new { id = item.EventId })
+
+                                    @{
+                                        if (User.IsInRole("Administrator"))
+                                        {
+                                            @Html.ActionLink("Edit  ", "Edit", new { id = item.EventId })
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+                                        }
+                                    }
                                 </h5>
                                 <button type="button" class="btn btn-secondary btn-sm">@Html.ActionLink("Purchase", "Create", "Ticket")</button>
 

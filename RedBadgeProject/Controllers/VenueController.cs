@@ -23,6 +23,7 @@ namespace RedBadgeProject.Controllers
 
         //Add method here
         //GET
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             return View();
@@ -56,6 +57,8 @@ namespace RedBadgeProject.Controllers
 
             return View(model);
         }
+
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id)
         {
             var service = CreateVenueService();
@@ -100,6 +103,7 @@ namespace RedBadgeProject.Controllers
         }
 
         [ActionName("Delete")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id)
         {
             var svc = CreateVenueService();

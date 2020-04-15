@@ -81,6 +81,8 @@ namespace RedBadgeProject.Controllers
 
             return View(model);
         }
+
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id)
         {
             var service = CreateTicketService();
@@ -119,6 +121,7 @@ namespace RedBadgeProject.Controllers
         }
 
         [ActionName("Delete")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id)
         {
             var svc = CreateTicketService();

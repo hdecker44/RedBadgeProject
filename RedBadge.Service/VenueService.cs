@@ -45,7 +45,7 @@ namespace RedBadge.Service
                 var query =
                     ctx
                         .Venues
-                        .Where(e => e.OwnerId == _userId)
+                        //.Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new VenueListItem
@@ -68,7 +68,7 @@ namespace RedBadge.Service
                 var entity =
                     ctx
                         .Venues
-                        .Single(e => e.VenueId == id && e.OwnerId == _userId);
+                        .Single(e => e.VenueId == id);
                 var allEvents = entity.Events.ToList();
                 return
                     new VenueDetails
